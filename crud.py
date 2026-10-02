@@ -74,7 +74,7 @@ def mod_usuario(id, **kargs):
         get_usuario = Select(Usuario).filter_by(id=id)
         usuarios = session.execute(get_usuario).fetchall()
         for user in usuarios:
-            for key, value in kargs.item():
+            for key, value in kargs.items():
                 if key == 'senha':
                     user[0].define_password(value)
                 else:
@@ -94,4 +94,4 @@ def delete_usuario(id):
 
 
 if __name__ == '__main__':
-    mod_usuario(id=1, email='meu_novo_email@email.com')
+    mod_usuario(id=1, senha='senha111')
